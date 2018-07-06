@@ -11,8 +11,8 @@
     </author>
     <category citation-format="note"/>
     <category field="law"/>
-    <summary>A style for legal citations in Poland.</summary>
-    <updated>2018-06-08T15:45:20+01:00</updated>
+    <summary>A style for legal citations in Poland (PWN).</summary>
+    <updated>2018-07-06T08:12:22+01:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <locale xml:lang="pl">
@@ -39,18 +39,7 @@
   </macro>
   <macro name="author"> <!-- Wstawia autora. -->
     <names variable="author">
-      <name form="long" initialize-with=". " delimiter=", " delimiter-precedes-last="always" sort-separator=", "/>
-      <label form="short" prefix=" (" suffix=")"/>
-      <substitute>
-        <names variable="editor"/>
-        <names variable="translator"/>
-        <text macro="title"/>
-      </substitute>
-    </names>
-  </macro>
-  <macro name="author-subsequent"> <!-- Wstawia autora w kolejnych przypisach. -->
-    <names variable="author">
-      <name form="long" delimiter=", " delimiter-precedes-last="always" sort-separator=", " initialize-with=". "/>
+      <name form="long" initialize-with="." delimiter=", " delimiter-precedes-last="always" sort-separator=", "/>
       <label form="short" prefix=" (" suffix=")"/>
       <substitute>
         <names variable="editor"/>
@@ -61,7 +50,7 @@
   </macro>
   <macro name="author-bibliography"> <!--Wstawia autora imię z tyłu. -->
     <names variable="author">
-      <name name-as-sort-order="first" form="long" initialize-with=". " delimiter=", " delimiter-precedes-last="always" sort-separator=", " />
+      <name name-as-sort-order="all" form="long" initialize-with="." delimiter=", " delimiter-precedes-last="always" sort-separator=" " />
       <label form="short" prefix=" (" suffix=".)"/>
       <substitute>
         <names variable="editor"/>
@@ -113,7 +102,7 @@
     <text term="in" prefix=" [" suffix=":] "/>
     <group delimiter=", ">
       <text macro="editor-translator"/>
-      <text variable="container-title" font-style="normal" quotes="true"/>
+      <text variable="container-title" font-style="italic" quotes="false"/>
       <text macro="volume"/>
       <text macro="publisher-date"/>
       <text macro="locator"/>
@@ -239,7 +228,7 @@
           <choose>
             <if type="book chapter">
               <group delimiter=", ">
-                <text macro="author-subsequent"/>
+                <text macro="author"/>
                 <text macro="title-short"/>
                 <text macro="volume"/>
                 <text macro="locator"/>
@@ -247,7 +236,7 @@
             </if>
             <else>
               <group delimiter=", ">
-                <text macro="author-subsequent"/>
+                <text macro="author"/>
                 <text macro="title-short"/>
                 <text macro="locator"/>
               </group>
